@@ -9,23 +9,21 @@ function UnityPlayer() {
 
   // Define file paths based on current format
   const getUnityFiles = () => {
+    const BASE_PATH = "/react-unity-showcase-demo/unity-build/Build/";
+
     if (fileFormat === "uncompressed") {
       return {
-        loaderUrl:
-          "/unity-build/Build/f2ba0865912f192eb26d6e4186bcdd66.loader.js",
-        dataUrl: "/unity-build/Build/11e1b4aba4a6a68646ad26b564cf87bd.data",
-        frameworkUrl:
-          "/unity-build/Build/faf34f3658a59ed5c0341ae9b631b7a0.framework.js",
-        codeUrl: "/unity-build/Build/1410edb529b39ed01e1329d53fe3ecd5.wasm",
+        loaderUrl: `${BASE_PATH}f2ba0865912f192eb26d6e4186bcdd66.loader.js`,
+        dataUrl: `${BASE_PATH}11e1b4aba4a6a68646ad26b564cf87bd.data`,
+        frameworkUrl: `${BASE_PATH}faf34f3658a59ed5c0341ae9b631b7a0.framework.js`,
+        codeUrl: `${BASE_PATH}1410edb529b39ed01e1329d53fe3ecd5.wasm`,
       };
     } else {
       return {
-        loaderUrl:
-          "/unity-build/Build/f2ba0865912f192eb26d6e4186bcdd66.loader.js",
-        dataUrl: "/unity-build/Build/11e1b4aba4a6a68646ad26b564cf87bd.data.br",
-        frameworkUrl:
-          "/unity-build/Build/faf34f3658a59ed5c0341ae9b631b7a0.framework.js.br",
-        codeUrl: "/unity-build/Build/1410edb529b39ed01e1329d53fe3ecd5.wasm.br",
+        loaderUrl: `${BASE_PATH}f2ba0865912f192eb26d6e4186bcdd66.loader.js`,
+        dataUrl: `${BASE_PATH}11e1b4aba4a6a68646ad26b564cf87bd.data.br`,
+        frameworkUrl: `${BASE_PATH}faf34f3658a59ed5c0341ae9b631b7a0.framework.js.br`,
+        codeUrl: `${BASE_PATH}1410edb529b39ed01e1329d53fe3ecd5.wasm.br`,
       };
     }
   };

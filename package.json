@@ -1,7 +1,7 @@
 {
-  "homepage": "https://github.com/Andrea-Who-Knocks/react-unity-showcase-demo",
+  "homepage": "https://Andrea-Who-Knocks.github.io/react-unity-showcase-demo",
   "name": "react-unity-showcase-demo",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
   "type": "module",
   "scripts": {

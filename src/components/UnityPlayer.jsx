@@ -70,17 +70,17 @@ function UnityPlayer() {
       // Only check on first attempt
       if (attempts > 0) return;
 
+      const BASE_PATH = "/react-unity-showcase-demo/unity-build/Build/";
+
       // Check compressed files first
       const compressedFiles = {
-        framework:
-          "/unity-build/Build/faf34f3658a59ed5c0341ae9b631b7a0.framework.js.br",
-        data: "/unity-build/Build/11e1b4aba4a6a68646ad26b564cf87bd.data.br",
+        framework: `${BASE_PATH}faf34f3658a59ed5c0341ae9b631b7a0.framework.js.br`,
+        data: `${BASE_PATH}11e1b4aba4a6a68646ad26b564cf87bd.data.br`,
       };
 
       const uncompressedFiles = {
-        framework:
-          "/unity-build/Build/faf34f3658a59ed5c0341ae9b631b7a0.framework.js",
-        data: "/unity-build/Build/11e1b4aba4a6a68646ad26b564cf87bd.data",
+        framework: `${BASE_PATH}faf34f3658a59ed5c0341ae9b631b7a0.framework.js`,
+        data: `${BASE_PATH}11e1b4aba4a6a68646ad26b564cf87bd.data`,
       };
 
       // Check if compressed files exist
@@ -201,7 +201,7 @@ function UnityPlayer() {
                 Trying to load {fileFormat} files (Attempt {attempts + 1})
               </p>
               <p>
-                Looking for files in: <code>/unity-build/Build/</code>
+                Looking for files in: <code>{getUnityFiles().loaderUrl}</code>
               </p>
             </div>
 

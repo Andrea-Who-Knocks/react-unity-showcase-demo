@@ -1,3 +1,4 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 public/unity-build/Build/*.data.br filter=lfs diff=lfs merge=lfs -text
+public/unity-build/**/* filter=lfs diff=lfs merge=lfs -text

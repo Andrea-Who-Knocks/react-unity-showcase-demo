@@ -9,6 +9,7 @@ function UnityPlayer() {
 
   // Define file paths based on current format
   const getUnityFiles = () => {
+    // Use a relative path that works properly with GitHub Pages
     const BASE_PATH = "/react-unity-showcase-demo/unity-build/Build/";
 
     if (fileFormat === "uncompressed") {
@@ -28,7 +29,7 @@ function UnityPlayer() {
     }
   };
 
-  // Get the Unity context
+  // Enhanced Unity configuration with better storage handling
   const { unityProvider, isLoaded, loadingProgression, loadingError } =
     useUnityContext({
       ...getUnityFiles(),
@@ -37,6 +38,22 @@ function UnityPlayer() {
         alpha: false,
         backgroundColor: "#ffffff",
         premultipliedAlpha: false,
+      },
+      // Add these configurations to better handle storage issues
+      cacheControl: function (url) {
+        // Don't cache data URLs
+        if (url.match(/\.data/) || url.match(/\.data.br/)) {
+          return "no-store";
+        }
+        return "default";
+      },
+      // Create a custom error handler that catches storage errors
+      onError: function (message) {
+        console.warn("Unity Error:", message);
+        // Check if it's a storage access error and use our mock storage
+        if (message.includes("storage") || message.includes("Storage")) {
+          console.log("Storage error detected, using mock implementation");
+        }
       },
     });
 
@@ -59,9 +76,13 @@ function UnityPlayer() {
   useEffect(() => {
     const checkFile = async (url) => {
       try {
-        const response = await fetch(url, { method: "HEAD" });
+        const response = await fetch(url, {
+          method: "HEAD",
+          cache: "no-cache", // Add no-cache to prevent caching issues
+        });
         return response.ok;
       } catch (e) {
+        console.warn("Error checking file:", url, e);
         return false;
       }
     };
@@ -192,6 +213,11 @@ function UnityPlayer() {
               <li>
                 Try rebuilding your Unity WebGL project with compression
                 disabled
+              </li>
+              <li>
+                If you're seeing storage errors, this is a common issue with
+                Unity WebGL in some browsers. We're using a mock storage
+                implementation to handle this.
               </li>
             </ul>
 

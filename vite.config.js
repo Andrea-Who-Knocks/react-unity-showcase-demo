@@ -7,5 +7,13 @@ export default defineConfig({
   build: {
     outDir: "dist",
     assetsInlineLimit: 0, // Don't inline any assets as base64
+    rollupOptions: {
+      output: {
+        // Ensure proper file extensions for all output files
+        entryFileNames: "assets/[name].[hash].js",
+        chunkFileNames: "assets/[name].[hash].js",
+        assetFileNames: "assets/[name].[hash].[ext]",
+      },
+    },
   },
 });

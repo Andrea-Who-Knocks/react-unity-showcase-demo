@@ -1,0 +1,109 @@
+.unity-container {
+  position: relative; /* Needed for absolute positioning of the loader */
+  width: 90vw; /* Responsive width */
+  max-width: 1200px; /* Max width for large screens */
+  height: 75vh; /* Responsive height */
+  margin: 20px auto; /* Center the container */
+  border: 1px solid #e0e0e0; /* Lighter border */
+  background-color: #f8f9fa; /* Very light grey background for subtle contrast */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Keep contents contained */
+  display: flex; /* Use flexbox for centering canvas */
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+}
+
+/* Overlay for loading state */
+.loading-overlay {
+  position: absolute; /* Position over the Unity canvas area */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Semi-transparent white background */
+  z-index: 10; /* Ensure it's above the canvas */
+  padding: 20px;
+  box-sizing: border-box; /* Include padding in dimensions */
+}
+
+.loading-text {
+  color: #333; /* Dark text color for readability */
+  font-size: 1.2em;
+  margin-bottom: 15px; /* Space below text */
+}
+
+/* Progress Bar Styling */
+.progress-bar-container {
+  width: 80%; /* Width of the progress bar track */
+  max-width: 400px; /* Max width */
+  height: 10px; /* Height of the bar */
+  background-color: #e0e0e0; /* Light grey track background */
+  border-radius: 5px; /* Rounded corners for the track */
+  overflow: hidden; /* Ensure inner bar stays rounded */
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%; /* Starts at 0% */
+  background-color: #007bff; /* Blue color for the progress */
+  border-radius: 5px; /* Rounded corners for the progress */
+  transition: width 0.3s ease-out; /* Smooth transition for width changes */
+}
+
+/* Error Indicator Styling */
+.error-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(
+    255,
+    235,
+    238,
+    0.95
+  ); /* Light red background for errors */
+  color: #d32f2f; /* Darker red text */
+  font-size: 1.1em;
+  font-weight: bold;
+  z-index: 10;
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  border: 1px solid #ef9a9a;
+  border-radius: 8px; /* Match container */
+}
+
+/* Wrapper for the Unity Canvas */
+.unity-canvas-wrapper {
+  width: 100%;
+  height: 100%;
+  visibility: hidden; /* Hide until loaded */
+  opacity: 0; /* Fade in */
+  transition: opacity 0.5s ease-in-out;
+}
+
+.unity-canvas-wrapper.loaded {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Ensure canvas itself fills the wrapper */
+.unity-canvas-wrapper canvas {
+  display: block; /* Prevent extra space below canvas */
+  width: 100%;
+  height: 100%;
+}

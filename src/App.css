@@ -1,0 +1,46 @@
+/* General reset and base styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff; /* White background for the whole page */
+  color: #333; /* Default dark text color */
+}
+
+.App {
+  text-align: center;
+  padding: 20px; /* Add some padding around the app */
+}
+
+.App-header {
+  margin-bottom: 30px; /* Space below the header */
+  padding: 15px 0;
+  border-bottom: 1px solid #eee; /* Subtle separator */
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2em; /* Adjust title size as needed */
+  color: #2c3e50; /* A slightly softer black */
+}
+
+.App-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content like the Unity player */
+  justify-content: center;
+}
+
+/* Optional Footer Styles */
+/*
+.App-footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  font-size: 0.9em;
+  color: #777;
+}
+*/
